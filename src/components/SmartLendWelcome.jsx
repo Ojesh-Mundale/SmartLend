@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Sparkles, Shield, Zap, CheckCircle, TrendingUp, Clock, DollarSign, Target } from 'lucide-react';
 
-export default function SmartLendWelcome({ onBeginApproval }) {
+export default function SmartLendWelcome() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
 
@@ -141,10 +143,10 @@ export default function SmartLendWelcome({ onBeginApproval }) {
                 </p>
               </div>
 
-              <button 
-                onClick={onBeginApproval}
+              <button
+                onClick={() => navigate('/chat')}
                 className={`group w-full font-bold py-4 px-6 rounded-2xl text-white text-base lg:text-lg flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-2xl hover:scale-105 relative overflow-hidden ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-                style={{ 
+                style={{
                   background: 'linear-gradient(135deg, #0033A0 0%, #0047CC 100%)',
                   animationDelay: '0.6s'
                 }}
